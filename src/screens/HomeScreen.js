@@ -167,6 +167,26 @@ const HomeScreen = ({ navigation }) => {
             </View>
           </ImageBackground>
         </TouchableOpacity>
+
+        <TouchableOpacity
+          onPressIn={wowButton}
+          onPress={() => {
+            navigation.navigate('quiz');
+          }}
+          style={{ ...styles.cardContainer, marginBottom: 30 }}>
+          <ImageBackground
+            imageStyle={{ opacity: 0.5, ...styles.image }}
+            source={WebLinks}
+            style={styles.card}
+            borderRadius={10}>
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>QUIZ TEST</Text>
+              <Text style={styles.text2}>
+                Solo para pruebas
+              </Text>
+            </View>
+          </ImageBackground>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );

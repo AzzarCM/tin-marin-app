@@ -17,6 +17,7 @@ import Search from '../screens/Search';
 import FAQScreen from '../screens/FAQScreen';
 import WebLinksScreen from '../screens/WebLinksScreen';
 import CovidInfo from '../screens/CovidInfo';
+import Quiz from '../screens/Quiz';
 /**
  * @param {props} navigation  Contiene información básica de navegación
  * @property {function} Stack se crea el el stack de pantallas aqui se iran anexando cada pantalla que se vaya añadiendo en el drawer
@@ -192,6 +193,14 @@ export default function StackNavigation(props) {
       <Stack.Screen
         name="InfoCovid"
         component={CovidInfo}
+        options={{
+          title: '',
+          headerLeft: () => buttonLeft(),
+        }}
+      />
+      <Stack.Screen
+        name="quiz"
+        component={Quiz}
         options={{
           title: '',
           headerLeft: () => buttonLeft(),
