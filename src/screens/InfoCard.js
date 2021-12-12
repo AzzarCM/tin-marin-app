@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, SafeAreaView, View, Image } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Image, TouchableOpacity } from 'react-native';
 import { IconButton, Text, Title } from 'react-native-paper';
 import { getExhibitionById } from '../api/exhibitions';
 import ModalBody from '../components/ModalBody';
 import { ScrollView } from 'react-native-gesture-handler';
 import { map, size } from 'lodash';
+import Colors from '../constants/Colors';
+
 
 /**
  * Pantalla que muestra los detalles de una Exhibición.
  * @param {prop} route - Recibe parametros importantes para mostrar en pantalla
+ * @param {prop} navigation - Contiene información básica de navegación
  * @param {string} _id - ID asociado a una Exhibición.
  * @property {Object} exhibition - Objeto que contiene la estructura de una Exhibición.
  * @property {function} setExhibition - Método de acceso indirecto para modificar la propieadad exhibition.
@@ -26,7 +29,7 @@ import { map, size } from 'lodash';
  * @see https://lodash.com/docs/4.17.15#map
  * @return {SafeAreaView} Retorna un componente que contiene maquetada la vista
  */
-const InfoCard = ({ route }) => {
+const InfoCard = ({ route, navigation }) => {
   const { _id } = route.params;
   const [visible, setVisible] = useState(false);
   const [exhibition, setExhibition] = useState(null);
@@ -53,6 +56,17 @@ const InfoCard = ({ route }) => {
         <Text style={styles.overview}>{exhibition.description}</Text>
         {logoURL && <InfoSponsor url={logoURL} />}
         <InfoFooter exhibition={exhibition} />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('quiz');
+          }}
+          style={{
+            marginTop: 20, width: '100%', backgroundColor: Colors.blueColor, padding: 20, borderRadius: 5
+        }}>
+        <Text style={{
+            textAlign: 'center', color: Colors.white, fontSize: 20
+        }}>Realizar quiz</Text>
+        </TouchableOpacity>
       </ScrollView>
       <ModalBody
         visible={visible}
