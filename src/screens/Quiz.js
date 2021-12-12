@@ -7,20 +7,20 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const Quiz = () => {
 
     const allQuestions = questions;
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
     const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
-    const [correctOption, setcorrectOption] = useState(null);
-    const [isOptionDisabled, setIsOptionDisabled] = useState(false);
-    const [score, setScore] = useState(0);
+    const [correctOption, setCorrectOption] = useState(null);
+    const [isOptionsDisabled, setIsOptionsDisabled] = useState(false);
+    const [score, setScore] = useState(0)
     const [showNextButton, setShowNextButton] = useState(false)
     const [showScoreModal, setShowScoreModal] = useState(false)
 
     function validateAnswer(selectedOption) {
         let correct_option = allQuestions[currentQuestionIndex]['correct_option'];
         setCurrentOptionSelected(selectedOption);
-        setcorrectOption(correctOption);
-        setIsOptionDisabled(true);
-        if (selectedOption == correctOption) {
+        setCorrectOption(correct_option);
+        setIsOptionsDisabled(true);
+        if (selectedOption == correct_option) {
             //Set Score
             setScore(score + 1);
             //Show Next Button
@@ -92,7 +92,7 @@ const Quiz = () => {
                     allQuestions[currentQuestionIndex]?.options.map(option => (
                         <TouchableOpacity
                             onPress={() => validateAnswer(option)}
-                            disabled={isOptionDisabled}
+                            disabled={isOptionsDisabled}
                             key={option}
                             style={{
                                 borderWidth: 3,
