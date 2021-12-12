@@ -11,7 +11,7 @@ import { API_DEV, API_HOST } from '../constants/URL';
  * permite abortar la petición en caso esta se tarde más de lo esperado.
  */
 export const getAllLinks = (signal) => {
-  const url = `${API_DEV}/recommended-websites`;
+  const url = `${API_HOST}/recommended-websites`;
 
   return fetch(url, { signal: signal })
     .then((response) => response.json())

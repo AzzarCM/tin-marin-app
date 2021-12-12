@@ -11,7 +11,7 @@ import { API_DEV, API_HOST } from '../constants/URL';
  * .then((response) => {...});
  */
 export const getAllFAQs = () => {
-  const url = `${API_DEV}/faqs`;
+  const url = `${API_HOST}/faqs`;
   return fetch(url)
     .then((response) => response.json())
     .then((result) => result);

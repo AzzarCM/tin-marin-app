@@ -11,7 +11,7 @@ import { API_DEV, API_HOST } from '../constants/URL';
  * .then((response) => {...});
  */
 export const getAllSuperenceTypes = () => {
-  const url = `${API_DEV}/suggestiontypes`;
+  const url = `${API_HOST}/suggestiontypes`;
   return fetch(url)
     .then((response) => response.json())
     .then((result) => result);
