@@ -24,8 +24,8 @@ const Quiz = () => {
             //Set Score
             setScore(score + 1);
             //Show Next Button
-            setShowNextButton(true)
         }
+        setShowNextButton(true)
     }
 
     const handleNext = () => {
@@ -156,7 +156,7 @@ const Quiz = () => {
                     style={{
                         marginTop: 20, width: '100%', backgroundColor: Colors.accent, padding: 20, borderRadius: 5
                     }}>
-                    <Text style={{ fontSize: 20, color: Colors.accent, textAlign: 'center' }}>Next</Text>
+                    <Text style={{ fontSize: 20, color: Colors.white, textAlign: 'center' }}>Next</Text>
                 </TouchableOpacity>
             )
         } else {
@@ -237,7 +237,7 @@ const Quiz = () => {
                             padding: 20,
                             alignItems: 'center'
                         }}>
-                            <Text style={{ fontSize: 30, fontWeight: 'bold' }}>{score > (allQuestions.length / 2) ? '¡Lo lograste!' : 'Oh vaya...'}</Text>
+                            <Text style={{ fontSize: 30, fontWeight: 'bold' }}>{score > (allQuestions.length / 2) ? '¡Lo lograste!' : 'Oh vaya, quizá la próxima...'}</Text>
 
                             <View style={{
                                 flexDirection: 'row',
